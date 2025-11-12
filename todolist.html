@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List ✅</title>
+  <style>
+    body {
+        font-family: "Prompt", sans-serif;
+        background-image: url('https://scontent.fbkk4-2.fna.fbcdn.net/v/t39.30808-6/531876921_9851542934946311_381936437254512090_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=94e2a3&_nc_eui2=AeHM7ZgvXze4XhwlwgI1Ye335wVwH-8PFWHnBXAf7w8VYSu_T7VSt8tPR02ib4b6mmSeZvBE6lYqOm3LLmlMA3pa&_nc_ohc=JYLLsGfm8C8Q7kNvwFOtzx2&_nc_oc=Adl79z1knXz6BsG8VlmjXNL1U5e7OKXfFX7fDw5Dp3hkJoI0Sz63V5TQjgn1p0twA7Y&_nc_zt=23&_nc_ht=scontent.fbkk4-2.fna&_nc_gid=7GwAl4eQp0nAzAhWFlXjog&oh=00_AfiAf3iBZwczd3rZIGLzk9u9xGviKB9kvaBFQ7GrG68EqA&oe=691A0196');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .todo-container {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      width: 340px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .input-row {
+      display: flex;
+      gap: 8px;
+    }
+    input[type="text"] {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      padding: 8px 10px;
+      border: none;
+      background-color: #0078d7;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 15px;
+    }
+    li {
+      background: #f0f0f0;
+      margin-bottom: 8px;
+      padding: 8px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    li.done span {
+      text-decoration: line-through;
+      color: gray;
+    }
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .delete {
+      background: #ff4d4d;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 4px 7px;
+    }
+  </style>
+</head>
+<body>
+  <div class="todo-container">
+    <h1>📝 To-Do List</h1>
+    <div class="input-row">
+      <input type="text" id="taskInput" placeholder="เพิ่มสิ่งที่ต้องทำ..." />
+      <button onclick="addTask()">เพิ่ม</button>
+    </div>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    const taskInput = document.getElementById('taskInput');
+    const taskList = document.getElementById('taskList');
+
+    function loadTasks() {
+      const saved = JSON.parse(localStorage.getItem('tasks')) || [];
+      saved.forEach(task => addTaskToDOM(task.text, task.done));
+    }
+
+    function saveTasks() {
+      const tasks = [];
+      document.querySelectorAll('li').forEach(li => {
+        tasks.push({
+          text: li.querySelector('span').textContent,
+          done: li.classList.contains('done')
+        });
+      });
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    function addTask() {
+      const text = taskInput.value.trim();
+      if (text !== '') {
+        addTaskToDOM(text, false);
+        taskInput.value = '';
+        saveTasks();
+      }
+    }
+
+    function addTaskToDOM(text, done) {
+      const li = document.createElement('li');
+      if (done) li.classList.add('done');
+
+      const left = document.createElement('div');
+      left.className = 'left';
+
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.checked = done;
+      checkbox.onchange = () => {
+        li.classList.toggle('done', checkbox.checked);
+        saveTasks();
+      };
+
+      const span = document.createElement('span');
+      span.textContent = text;
+
+      const delBtn = document.createElement('button');
+      delBtn.textContent = 'ลบ';
+      delBtn.className = 'delete';
+      delBtn.onclick = () => {
+        li.remove();
+        saveTasks();
+      };
+
+      left.appendChild(checkbox);
+      left.appendChild(span);
+      li.appendChild(left);
+      li.appendChild(delBtn);
+      taskList.appendChild(li);
+    }
+
+    loadTasks();
+  </script>
+</body>
+</html>
