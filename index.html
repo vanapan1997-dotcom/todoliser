@@ -1,162 +1,188 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>To-Do List ✅</title>
-  <style>
-    body {
-        font-family: "Prompt", sans-serif;
-        background-image: url('https://scontent.fbkk4-2.fna.fbcdn.net/v/t39.30808-6/531876921_9851542934946311_381936437254512090_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=94e2a3&_nc_eui2=AeHM7ZgvXze4XhwlwgI1Ye335wVwH-8PFWHnBXAf7w8VYSu_T7VSt8tPR02ib4b6mmSeZvBE6lYqOm3LLmlMA3pa&_nc_ohc=JYLLsGfm8C8Q7kNvwFOtzx2&_nc_oc=Adl79z1knXz6BsG8VlmjXNL1U5e7OKXfFX7fDw5Dp3hkJoI0Sz63V5TQjgn1p0twA7Y&_nc_zt=23&_nc_ht=scontent.fbkk4-2.fna&_nc_gid=P67tEt3Jgim9QSEoG_g0XA&oh=00_AfhS0yezU3u7x0KDhXoGVKfb5tyfahXOSzhVXCvvLItuTQ&oe=691A39D6');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .todo-container {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      width: 340px;
-    }
-    h1 {
-      text-align: center;
-      color: #333;
-    }
-    .input-row {
-      display: flex;
-      gap: 8px;
-    }
-    input[type="text"] {
-      flex: 1;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    button {
-      padding: 8px 10px;
-      border: none;
-      background-color: #0078d7;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #005fa3;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-      margin-top: 15px;
-    }
-    li {
-      background: #f0f0f0;
-      margin-bottom: 8px;
-      padding: 8px;
-      border-radius: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    li.done span {
-      text-decoration: line-through;
-      color: gray;
-    }
-    .left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .delete {
-      background: #ff4d4d;
-      border: none;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-      padding: 4px 7px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แผนลดน้ำหนัก 98 → 84 กก.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #ecf0f1;
+        }
+        .highlight {
+            background: #eafaf1;
+            padding: 15px;
+            border-left: 5px solid #2ecc71;
+        }
+        .warning {
+            background: #fff5e6;
+            padding: 15px;
+            border-left: 5px solid #f39c12;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-  <div class="todo-container">
-    <h1>📝 To-Do List</h1>
-    <div class="input-row">
-      <input type="text" id="taskInput" placeholder="เพิ่มสิ่งที่ต้องทำ..." />
-      <button onclick="addTask()">เพิ่ม</button>
+
+<div class="container">
+
+    <h1>🔥 แผนลดน้ำหนักจาก 98 → ~84 กก.</h1>
+    <p style="text-align:center;">ทำได้จริง • ไม่ต้องวิ่งนาน • ใช้อุปกรณ์ที่มี</p>
+
+    <hr>
+
+    <h2>📌 ข้อมูลพื้นฐาน</h2>
+    <ul>
+        <li>น้ำหนักปัจจุบัน: <b>98 กก.</b></li>
+        <li>ส่วนสูง: <b>183 ซม.</b></li>
+        <li>เป้าหมาย BMI: <b>≈ 25</b></li>
+        <li>น้ำหนักเป้าหมาย: <b>~83–84 กก.</b></li>
+        <li>ต้องลดทั้งหมด: <b>≈ 14.3 กก.</b></li>
+    </ul>
+
+    <hr>
+
+    <h2>🎯 เป้าหมายการลด</h2>
+    <ul>
+        <li>ลด 0.7–1 กก. / สัปดาห์</li>
+        <li>ระยะเวลา 3.5–4 เดือน</li>
+        <li>BMI ลงมาใกล้ 24–25</li>
+    </ul>
+
+    <hr>
+
+    <h2>🏃‍♂️ คาร์ดิโอ (30 นาที / วัน)</h2>
+    <ul>
+        <li>เดินเร็วบนลู่วิ่ง 30 นาที</li>
+        <li>เดิน 10 นาที → พัก 2 นาที → เดิน 10 นาที → พัก → เดิน 10 นาที</li>
+        <li>ปั่นจักรยาน / Elliptical (ถ้ามี)</li>
+    </ul>
+
+    <div class="highlight">
+        <b>โซนเผาผลาญไขมัน:</b><br>
+        เหงื่อออก หายใจแรง แต่ยังพูดเป็นประโยคได้
     </div>
-    <ul id="taskList"></ul>
-  </div>
 
-  <script>
-    const taskInput = document.getElementById('taskInput');
-    const taskList = document.getElementById('taskList');
+    <hr>
 
-    function loadTasks() {
-      const saved = JSON.parse(localStorage.getItem('tasks')) || [];
-      saved.forEach(task => addTaskToDOM(task.text, task.done));
-    }
+    <h2>🏋️‍♂️ เวทเทรนนิ่ง (4 วัน / สัปดาห์)</h2>
 
-    function saveTasks() {
-      const tasks = [];
-      document.querySelectorAll('li').forEach(li => {
-        tasks.push({
-          text: li.querySelector('span').textContent,
-          done: li.classList.contains('done')
-        });
-      });
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-    }
+    <h3>🔵 วัน A : อก + ไหล่ + แขน</h3>
+    <ul>
+        <li>Dumbbell Bench Press — 4 × 12</li>
+        <li>Shoulder Press — 3 × 12</li>
+        <li>Lateral Raise — 3 × 15</li>
+        <li>Triceps Extension — 3 × 12</li>
+        <li>Biceps Curl — 3 × 12</li>
+    </ul>
 
-    function addTask() {
-      const text = taskInput.value.trim();
-      if (text !== '') {
-        addTaskToDOM(text, false);
-        taskInput.value = '';
-        saveTasks();
-      }
-    }
+    <h3>🔴 วัน B : หลัง + ขา</h3>
+    <ul>
+        <li>Lat Pulldown (Station) — 4 × 12</li>
+        <li>Seated Row — 3 × 12</li>
+        <li>Squat (ถือดัมเบล) — 4 × 15</li>
+        <li>Leg Extension / Curl — 3 × 15</li>
+        <li>Dumbbell Deadlift — 3 × 12</li>
+    </ul>
 
-    function addTaskToDOM(text, done) {
-      const li = document.createElement('li');
-      if (done) li.classList.add('done');
+    <hr>
 
-      const left = document.createElement('div');
-      left.className = 'left';
+    <h2>📅 ตารางออกกำลังกายรายสัปดาห์</h2>
+    <table>
+        <tr>
+            <th>วัน</th>
+            <th>กิจกรรม</th>
+        </tr>
+        <tr><td>จันทร์</td><td>เวท Day A</td></tr>
+        <tr><td>อังคาร</td><td>คาร์ดิโอ</td></tr>
+        <tr><td>พุธ</td><td>เวท Day B</td></tr>
+        <tr><td>พฤหัส</td><td>คาร์ดิโอ</td></tr>
+        <tr><td>ศุกร์</td><td>เวท Day A</td></tr>
+        <tr><td>เสาร์</td><td>คาร์ดิโอเบา ๆ</td></tr>
+        <tr><td>อาทิตย์</td><td>พัก</td></tr>
+    </table>
 
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      checkbox.checked = done;
-      checkbox.onchange = () => {
-        li.classList.toggle('done', checkbox.checked);
-        saveTasks();
-      };
+    <hr>
 
-      const span = document.createElement('span');
-      span.textContent = text;
+    <h2>🍽️ โภชนาการ</h2>
+    <div class="warning">
+        ❌ น้ำหวาน / ชานม / ของทอด<br>
+        ❌ ข้าวเยอะตอนเย็น<br>
+        ✔ โปรตีนทุกมื้อ<br>
+        ✔ ดื่มน้ำ 2.5–3 ลิตร / วัน
+    </div>
 
-      const delBtn = document.createElement('button');
-      delBtn.textContent = 'ลบ';
-      delBtn.className = 'delete';
-      delBtn.onclick = () => {
-        li.remove();
-        saveTasks();
-      };
+    <h3>🥗 ตัวอย่างอาหาร 1 วัน</h3>
+    <ul>
+        <li><b>เช้า:</b> ไข่ต้ม 2 ฟอง + กาแฟดำ</li>
+        <li><b>กลางวัน:</b> ข้าว 1 ทัพพี + โปรตีน + ผัก</li>
+        <li><b>เย็น:</b> สลัด + ไข่ / ทูน่า หรือ ต้มจืด</li>
+        <li><b>ว่าง:</b> กล้วย 1 ลูก หรือ โยเกิร์ตไขมันต่ำ</li>
+    </ul>
 
-      left.appendChild(checkbox);
-      left.appendChild(span);
-      li.appendChild(left);
-      li.appendChild(delBtn);
-      taskList.appendChild(li);
-    }
+    <hr>
 
-    loadTasks();
-  </script>
+    <h2>📉 ผลลัพธ์ที่ควรเห็น</h2>
+    <table>
+        <tr>
+            <th>สัปดาห์</th>
+            <th>น้ำหนักที่ลด</th>
+        </tr>
+        <tr><td>2</td><td>-2 กก.</td></tr>
+        <tr><td>4</td><td>-4 กก.</td></tr>
+        <tr><td>8</td><td>-7 กก.</td></tr>
+        <tr><td>12</td><td>-10 กก.</td></tr>
+        <tr><td>16</td><td>-14 กก. 🎉</td></tr>
+    </table>
+
+    <footer>
+        💪 ทำครบ = เห็นผลแน่นอน | แผนนี้เหมาะสำหรับใช้งานบน GitHub Pages
+    </footer>
+
+</div>
+
 </body>
 </html>
-
-
-
